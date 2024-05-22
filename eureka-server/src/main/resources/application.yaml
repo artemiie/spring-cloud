@@ -13,8 +13,7 @@ eureka:
       defaultZone: http://localhost:8081/eureka
 
 logging:
-  level:
-    com:
-      netflix:
-        eureka: OFF
-        discovery: OFF
+  pattern:
+    console: "%d{HH:mm:ss} | %-5level | %msg%n"
+
+    #%logger{1.}
