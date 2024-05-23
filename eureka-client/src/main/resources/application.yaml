@@ -1,9 +1,20 @@
 server:
   port: 0
 
+logging:
+  pattern:
+    console: "%d{HH:mm:ss} | %-5level | %msg%n"
+
+# регистрация у eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
 spring:
   application:
     name: eureka-client
+  # регистрация у admin-server
   boot:
     admin:
       client:
@@ -13,15 +24,7 @@ spring:
           service-host-type: ip
         url: http://localhost:8083
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka
-
-logging:
-  pattern:
-    console: "%d{HH:mm:ss} | %-5level | %msg%n"
-
+# настройки информации о eureka-client для admin-server
 management:
   health:
     livenessstate:

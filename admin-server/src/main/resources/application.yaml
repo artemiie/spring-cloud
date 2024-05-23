@@ -1,21 +1,17 @@
 server:
   port: 8083
 
+logging:
+  pattern:
+    console: "%d{HH:mm:ss} | %-5level | %msg%n"
+
 spring:
   application:
     name: admin-server
-  cloud:
-    gateway:
-      dicovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
 
+# регистрация у eureka-server
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8081/eureka
 
-logging:
-  pattern:
-    console: "%d{HH:mm:ss} | %-5level | %msg%n"

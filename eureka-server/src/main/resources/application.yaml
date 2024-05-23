@@ -5,6 +5,7 @@ spring:
   application:
     name: eureka-server
 
+# настройки для eureka-server
 eureka:
   client:
     register-with-eureka: false
@@ -15,5 +16,3 @@ eureka:
 logging:
   pattern:
     console: "%d{HH:mm:ss} | %-5level | %msg%n"
-
-    #%logger{1.}

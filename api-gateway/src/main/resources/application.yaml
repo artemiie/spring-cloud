@@ -1,15 +1,28 @@
 server:
   port: 8082
 
+logging:
+  pattern:
+    console: "%d{HH:mm:ss} | %-5level | %msg%n"
+
+# регистрация у eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+
 spring:
   application:
     name: api-gateway
+  # настройки для api-gateway
   cloud:
     gateway:
       dicovery:
         locator:
           enabled: true
           lower-case-service-id: true
+  # регистрация у admin-server
   boot:
     admin:
       client:
@@ -19,15 +32,7 @@ spring:
           service-host-type: ip
         url: http://localhost:8083
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka
-
-logging:
-  pattern:
-    console: "%d{HH:mm:ss} | %-5level | %msg%n"
-
+# настройки информации о api-gateway для admin-server
 management:
   health:
     livenessstate:
