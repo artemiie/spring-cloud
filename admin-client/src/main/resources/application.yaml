@@ -1,0 +1,31 @@
+server:
+  port: 0
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss} | %-5level | %msg%n"
+
+spring:
+  application:
+    name: admin-client
+  # регистрация у admin-server
+  boot:
+    admin:
+      client:
+        enabled: true
+        instance:
+          name: admin-client
+          service-host-type: ip
+        url: http://localhost:8083
+
+# настройки информации о admin-client для admin-server
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
